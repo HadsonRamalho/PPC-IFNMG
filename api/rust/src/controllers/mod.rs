@@ -24,21 +24,19 @@ pub struct InfoInput{
 
 pub async fn api_atualizar_documento(input: Json<InfoInput>)
     -> Result<(StatusCode, Json<String>), (StatusCode, Json<String>)>{
-
-    let nome_curso = input.info_curso.nome_curso.trim();
-    let ano_documento = input.info_curso.ano_documento.to_string();
-
     let info_curso = InfoCurso {
-        nome_curso: nome_curso.to_string(),
-        ano_documento,
+        nome_curso: input.info_curso.nome_curso.to_string(),
+        sigla_curso: input.info_curso.sigla_curso.trim().to_string(),
+        quantidade_semestres: input.info_curso.quantidade_semestres.trim().to_string(),
     };
 
     let info_campus = InfoCampus {
         nome_campus: input.info_campus.nome_campus.trim().to_string(),
         cidade_campus: input.info_campus.cidade_campus.trim().to_string(),
+        uf_campus: input.info_campus.uf_campus.trim().to_string(),
     };
 
-    let argumentos = Argumentos {
+    let argumentos = InfoInput {
         info_curso,
         info_campus,
     };
