@@ -9,15 +9,15 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export function CampusInfoForm() {
   const [campusData, setCampusData] = useState({
-    name: "IFNMG - Campus Montes Claros",
-    address: "Rua Dois, 300 - Village do Lago I, Montes Claros - MG, 39404-058",
+    name: "IFNMG - Campus Araçuaí",
+    address: "Rua Dois, 300 - Village do Lago I, Araçuaí - MG, 39404-058",
     phone: "(38) 2103-4141",
-    email: "campus.montesclaros@ifnmg.edu.br",
+    email: "campus.aracuai@ifnmg.edu.br",
     director: "Prof. Dr. Renato Afonso Cota Silva",
     infrastructure:
       "O campus possui 20 salas de aula, 10 laboratórios de informática, biblioteca, auditório, cantina, quadra poliesportiva e áreas de convivência.",
     history:
-      "O Campus Montes Claros do IFNMG foi criado em 2010, como parte da expansão da Rede Federal de Educação Profissional e Tecnológica. Desde então, tem se destacado na oferta de cursos técnicos e superiores na região norte de Minas Gerais.",
+      "O Campus Araçuaí do IFNMG foi criado em 2010, como parte da expansão da Rede Federal de Educação Profissional e Tecnológica. Desde então, tem se destacado na oferta de cursos técnicos e superiores na região norte de Minas Gerais.",
   })
 
   const handleChange = (field: string, value: string) => {

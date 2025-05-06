@@ -10,6 +10,8 @@ import { CourseInfoForm } from "@/components/course-info-form"
 import { SyllabusInfoForm } from "@/components/syllabus-info-form"
 import { CampusInfoForm } from "@/components/campus-info-form"
 import { Save, ArrowLeft } from "lucide-react"
+import { atualizar_documento } from "@/services/documentos"
+import { InfoDocumento } from "@/interfaces/documentos"
 
 export default function EditorPage() {
   const router = useRouter()
@@ -19,11 +21,22 @@ export default function EditorPage() {
   const handleSave = async () => {
     setSaving(true)
 
-    // Simulando uma chamada de API
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    const info: InfoDocumento = {
+      info_curso: {
+        nome_curso: "Curso Tecnologia em Análise e Desenvolvimento de Sistemas",
+        sigla_curso: "TADS",
+        quantidade_semestres: "6",
+      },
 
-    // Aqui seria feita a chamada real para a API
-    console.log("Salvando dados...")
+      info_campus: {
+        nome_campus: "Campus Araçuaí",
+        cidade_campus: "Araçuaí",
+        uf_campus: "MG"
+      }
+
+    };
+    const res = await atualizar_documento(info);
+    console.log(res);
 
     setSaving(false)
   }

@@ -8,7 +8,6 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata = {
   title: "PPC-IFNMG - Plataforma de Edição de Documentos",
   description: "Plataforma para edição e atualização de documentos PPC do IFNMG",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({

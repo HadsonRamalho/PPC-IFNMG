@@ -1,0 +1,1 @@
+typst compile --input argumentos.json main.typ --format pdf
