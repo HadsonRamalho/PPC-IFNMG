@@ -18,14 +18,25 @@ export default function EditorPage() {
   const [activeTab, setActiveTab] = useState("curso")
   const [saving, setSaving] = useState(false)
 
+  const [courseData, setCourseData] = useState({
+    name: "Tecnologia em Análise e Desenvolvimento de Sistemas",
+    code: "TADS-2023",
+    year: "2023",
+    duration: "3 anos",
+    modality: "Presencial",
+    coordinator: "Prof. Dr. João Silva",
+    description:
+      "O curso de Tecnologia em Análise e Desenvolvimento de Sistemas tem como objetivo formar profissionais capazes de analisar, projetar, documentar, especificar, testar, implantar e manter sistemas computacionais de informação.",
+  });
+
   const handleSave = async () => {
     setSaving(true)
 
     const info: InfoDocumento = {
       info_curso: {
-        nome_curso: "Curso Tecnologia em Análise e Desenvolvimento de Sistemas",
-        sigla_curso: "TADS",
-        quantidade_semestres: "6",
+        nome_curso: courseData.name,
+        sigla_curso: courseData.code,
+        quantidade_semestres: courseData.duration,
       },
 
       info_campus: {
@@ -80,7 +91,7 @@ export default function EditorPage() {
           </div>
 
           <TabsContent value="curso" className="mt-6">
-            <CourseInfoForm />
+            <CourseInfoForm courseData={courseData} onChange={setCourseData} />
           </TabsContent>
 
           <TabsContent value="ementa" className="mt-6">

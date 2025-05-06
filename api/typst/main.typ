@@ -109,7 +109,7 @@
 
 #let grupo1 = text(grupo1, fill: white, size: 14pt)
 
-#let ano_documento = std.json("/api/rust/argumentos.json").at("info_curso").at("ano_documento");
+#let ano_documento = text("2023");
 
 #let texto_footer = text(campus + " - MG") + text("\n" + ano_documento);
 #let texto_footer = text(texto_footer, fill: white, size: 14pt);

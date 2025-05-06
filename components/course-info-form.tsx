@@ -7,24 +7,27 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
-export function CourseInfoForm() {
-  const [courseData, setCourseData] = useState({
-    name: "Tecnologia em Análise e Desenvolvimento de Sistemas",
-    code: "TADS-2023",
-    year: "2023",
-    duration: "3 anos",
-    modality: "Presencial",
-    coordinator: "Prof. Dr. João Silva",
-    description:
-      "O curso de Tecnologia em Análise e Desenvolvimento de Sistemas tem como objetivo formar profissionais capazes de analisar, projetar, documentar, especificar, testar, implantar e manter sistemas computacionais de informação.",
-  })
+type CourseInfoFormProps = {
+  courseData: {
+    name: string
+    code: string
+    year: string
+    duration: string
+    modality: string
+    coordinator: string
+    description: string
+  },
+  onChange: (data: any) => void
+}
+
+export function CourseInfoForm({ courseData, onChange }: CourseInfoFormProps) {
 
   const handleChange = (field: string, value: string) => {
-    setCourseData((prev) => ({
-      ...prev,
+    onChange({
+      ...courseData,
       [field]: value,
-    }))
-  }
+    });
+  };
 
   return (
     <Card>
