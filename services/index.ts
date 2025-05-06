@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const client = axios.create({
-  baseURL: 'http://localhost:3033/api',
+  baseURL: 'https://g6v9psc0-3033.brs.devtunnels.ms/api',
 });
 
 export { client };
